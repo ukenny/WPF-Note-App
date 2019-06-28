@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using SQLite;
 
 namespace WPF_Note_App.Model
 {
     public class User : INotifyPropertyChanged
     {
         private int _id;
-
+        [PrimaryKey, AutoIncrement]
         public int Id
         {
             get { return _id; }
@@ -24,7 +25,7 @@ namespace WPF_Note_App.Model
         }
 
         private string _firstName;
-
+        [MaxLength(50)]
         public string FirstName
         {
             get { return _firstName; }
@@ -39,7 +40,7 @@ namespace WPF_Note_App.Model
         }
 
         private string _lastName;
-
+        [MaxLength(50)]
         public string LastName
         {
             get { return _lastName; }
@@ -54,7 +55,7 @@ namespace WPF_Note_App.Model
         }
 
         private string _username;
-
+        [Unique]
         public string Username
         {
             get { return _username; }
